@@ -110,7 +110,11 @@
 
       // ##########################################
 
-      render(App({ state }), document.getElementById("root"));
+      function renderView(state) {
+        render(App({ state }), document.getElementById("root"));
+      }
+
+      renderView(state)
 
       // ##########################################
 
@@ -119,7 +123,7 @@
           ...state,
           time: new Date(),
         };
-        render(App({ state }), document.getElementById("root"));
+        renderView(state)
       }, 1000);
 
       // ##########################################
