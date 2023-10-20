@@ -17,20 +17,7 @@
       let state = {
         time: new Date(),
         zone: "ru",
-        lots: [
-          {
-            id: 1,
-            name: "Apple",
-            description: "Apple description",
-            price: 16,
-          },
-          {
-            id: 2,
-            name: "Orange",
-            description: "Orange description",
-            price: 41,
-          },
-        ],
+        lots: null,
       };
 
       // ##########################################
@@ -79,7 +66,17 @@
         return node;
       }
 
+      function Loading() {
+        const node = document.createElement("div");
+        node.className = "loading";
+        node.innerText = "Loading...";
+        return node;
+      }
+
       function Lots({ lots }) {
+        if (lots === null) {
+          return Loading()
+        }
         const list = document.createElement("div");
         list.className = "lots";
 
@@ -114,16 +111,16 @@
         render(App({ state }), document.getElementById("root"));
       }
 
-      renderView(state)
+      renderView(state);
 
       // ##########################################
 
       setInterval(() => {
-        state =  {
+        state = {
           ...state,
           time: new Date(),
         };
-        renderView(state)
+        renderView(state);
       }, 1000);
 
       // ##########################################
