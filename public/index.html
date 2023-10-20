@@ -14,7 +14,7 @@
     <div id="root"></div>
 
     <script>
-      const state = {
+      let state = {
         time: new Date(),
         zone: "ru",
         lots: [
@@ -115,7 +115,10 @@
       // ##########################################
 
       setInterval(() => {
-        state.time = new Date();
+        state =  {
+          ...state,
+          time: new Date(),
+        };
         render(App({ state }), document.getElementById("root"));
       }, 1000);
 
