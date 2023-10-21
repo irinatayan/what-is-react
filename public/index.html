@@ -139,6 +139,17 @@
 
       renderView(state);
 
+
+      // ##########################################
+
+      setInterval(() => {
+        state = {
+          ...state,
+          time: new Date(),
+        };
+        renderView(state);
+      }, 1000);
+
       // ##########################################
 
       api.get('/lots').then((lots) => {
