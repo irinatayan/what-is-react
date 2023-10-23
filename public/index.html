@@ -43,8 +43,6 @@
       const stream = {
         subscribe(channel, listener) {
           const match = /price-(\d+)/.exec(channel)
-          console.log('in stream')
-          console.log(parseInt(match[1]))
           if (match) {
             setInterval(() => {
               listener({
@@ -175,8 +173,6 @@
         }
         renderView(state)
         const onPrice = (data) => {
-          console.log('in onPrice')
-          console.log(state.lots)
           state = {
             ...state,
             lots: state.lots.map((lot) => {
